@@ -579,7 +579,8 @@ body {
       transform: translate(-50%, -50%);
       width: 100px;
       height: 100px;
-      border: 20px solid #ED494C; }
+      border: 20px solid #ED494C;
+      left: 75%; }
     .play .container .result .win, .play .container .result .draw-win {
       font-size: 96px; } }
 
@@ -734,6 +735,7 @@ body {
       transform: translate(-50%, -50%);
       width: 80px;
       height: 80px;
-      border: 20px solid #ED494C; }
+      border: 20px solid #ED494C;
+      left: 75%; }
     .play .container .result .win, .play .container .result .draw-win {
       font-size: 76px; } }

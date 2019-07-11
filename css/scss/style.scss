@@ -547,6 +547,7 @@ body {
         .draw-circle {
           &::before {
             @include circle(100px, 20px, $color-secondary);
+            left: 75%;
           }
         }
 
@@ -679,6 +680,7 @@ body {
         .draw-circle {
           &::before {
             @include circle(80px, 20px, $color-secondary);
+            left: 75%;
           }
         }
 
