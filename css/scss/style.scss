@@ -1,0 +1,693 @@
+@import "mixin.scss";
+@import "variable.scss";
+
+// GLOBAL
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+}
+
+
+body {
+  background-color: $color-main;
+  font-size: 48px;
+}
+
+.container {
+  width: $table-width;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+.table {
+  @include table;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+
+  .box {
+    width: ($table-width - 16px) / 3;
+    height: ($table-width - 16px) / 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.btn {
+  width: 100%;
+  height: 90px;
+  font-size: 48px;
+  background-color: $color-secondary;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+// HOME
+.home {
+  background-color: $color-black;
+  min-height: 100vh;
+
+  .container {
+    .table {
+      color: $color-white;
+      font-size: 100px;
+
+      .box {
+        position: relative;
+
+        &:nth-child(4n+1) {
+          font-style: italic;
+        }
+
+        .cross {
+          position: absolute;
+          left: calc(50% - 60px);
+          &::before {
+            @include cross(120px, 12px, $color-secondary, -45deg);
+
+          }
+          &::after {
+            @include cross(120px, 12px, $color-secondary, 45deg);
+          }
+        }
+
+        .cross-empty {
+          position: absolute;
+          left: calc(50% - 60px);
+
+          &::before {
+            @include cross(130px, 22px, $color-white, -45deg);
+
+          }
+          &::after {
+            @include cross(130px, 22px, $color-white, 45deg);
+          }
+        }
+
+        .cross-empty-line-1 {
+          @include cross-empty-line(-45deg);
+        }
+
+        .cross-empty-line-2 {
+          @include cross-empty-line(45deg);
+        }
+
+        .circle {
+          &::before {
+            @include circle(90px, 12px, $color-secondary);
+            left: 53%;
+          }
+        }
+
+        .circle-empty {
+          &::before {
+            @include circle(110px, 4px, $color-main);
+            left: 53%;
+          }
+          &::after {
+            @include circle(70px, 4px, $color-main);
+            left: 53%;
+          }
+        }
+      }
+    }
+
+    .btn-home {
+      background-color: $color-white;
+      color: $color-main;
+      margin-left: 15px;
+    }
+  }
+}
+
+
+// PLAY
+.play {
+  .container {
+    .score {
+      width: 100%;
+      height: 64px;
+      text-align: center;
+      position: relative;
+      color: $color-white;
+      margin-bottom: 60px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      .cross-box {
+        @include score-cross-circle-box;
+        border-radius: 8px 0 0 8px;
+
+        .cross {
+          position: absolute;
+          left: calc(50% - 20px);
+          top: 48%;
+
+          &::before {
+            @include cross(40px, 4px, $color-white, -45deg);
+          }
+          &::after {
+            @include cross(40px, 4px, $color-white, 45deg);
+          }
+        }
+      }
+
+      .circle-box {
+        @include score-cross-circle-box;
+        border-radius: 0 8px 8px 0;
+
+        &::before {
+          @include circle(30px, 4px, $color-white)
+        }
+      }
+
+      .toggleBackground {
+        background-color: $color-secondary;
+      }
+
+      .score-box {
+        flex: 1;
+        border-top: 4px solid $color-black;
+        border-bottom: 4px solid $color-black;
+        background-color: $color-white;
+        color: $color-black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .vs {
+        width: 70px;
+        height: 74px;
+        background-color: $color-black;
+        border-radius: 8px 8px 0 0;
+        font-size: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .turn {
+        position: absolute;
+        top: 72px;
+        left: 3px;
+        font-size: 20px;
+      }
+
+      .toggleTurn {
+        left: 440px;
+      }
+    }
+
+
+
+
+    .table {
+      .line {
+        background-color: $color-secondary;
+        border-radius: 5px;
+        position: absolute;
+      }
+
+      .ver-line {
+        width: 8px;
+        height: 100%;
+
+        &:nth-child(1) {
+          left: 32.4%;
+        }
+        &:nth-child(2) {
+          left: 66.2%;
+        }
+      }
+
+      .hor-line {
+        height: 8px;
+        width: 100%;
+        &:nth-child(1) {
+          top: 32.4%;
+        }
+        &:nth-child(2) {
+          top: 66.2%;
+        }
+      }
+
+      .box {
+        position: relative;
+
+        .circle {
+          position: relative;
+          &::before {
+            @include circle(60px, 8px, $color-black);
+          }
+        }
+
+        .cross {
+          position: absolute;
+          left: calc(50% - 40px);
+          top: 50%;
+
+          &::before {
+            @include cross(80px, 8px, $color-white, -45deg);
+          }
+          &::after {
+            @include cross(80px, 8px, $color-white, 45deg);
+          }
+        }
+      }
+    }
+
+    .result {
+      @include table;
+
+      .circle {
+        &::before {
+          @include circle(300px, 40px, $color-secondary);
+        }
+      }
+
+      .cross {
+        position: absolute;
+        left: calc(50% - 230px);
+        top: 50%;
+
+        &::before {
+          @include cross(460px, 50px, $color-secondary, -45deg);
+        }
+        &::after {
+          @include cross(460px, 50px, $color-secondary, 45deg);
+        }
+      }
+
+      .draw-cross {
+        position: absolute;
+        left: calc(30% - 110px);
+        top: 47%;
+
+        &::before {
+          @include cross(220px, 30px, $color-secondary, -45deg);
+        }
+        &::after {
+          @include cross(220px, 30px, $color-secondary, 45deg);
+        }
+      }
+
+      .draw-circle {
+        &::before {
+          @include circle(150px, 20px, $color-secondary);
+          left: 75%;
+        }
+      }
+
+
+      .win, .draw-win {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 154px;
+        -webkit-text-stroke: .1px $color-white;
+        font-style: italic;
+        color: $color-main;
+      }
+
+      .top {
+        top: 20%;
+      }
+
+      .bottom {
+        top: 80%;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+///////////////  RESPONSIVE //////////////
+
+
+
+
+
+
+@media (max-width: 620px) {
+
+  .table {
+    width: 360px;
+    height: 360px;
+
+    .box {
+      width: (360px - 16px) / 3;
+      height: (360px - 16px) / 3;
+    }
+  }
+
+  .container {
+    width: 100%;
+    min-height: 90vh;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .btn {
+    max-width: 260px;
+    height: 60px;
+    font-size: 36px;
+  }
+
+  // HOME
+
+  .home {
+    .container {
+      .table {
+        font-size: 60px;
+        margin-top: 60px;
+
+        .box {
+          .cross {
+            left: calc(54% - 45px);
+            top: 44%;
+            &::before {
+              @include cross(90px, 12px, $color-secondary, -45deg);
+
+            }
+            &::after {
+              @include cross(90px, 12px, $color-secondary, 45deg);
+            }
+          }
+
+          .circle {
+            &::before {
+              @include circle(60px, 12px, $color-secondary);
+            }
+          }
+
+          .circle-empty {
+            &::before {
+              @include circle(80px, 4px, $color-main);
+            }
+            &::after {
+              @include circle(50px, 4px, $color-main);
+            }
+          }
+
+          .cross-empty {
+            left: calc(50% - 50px);
+            top: 44%;
+
+            &::before {
+              @include cross(100px, 22px, $color-white, -45deg);
+
+            }
+            &::after {
+              @include cross(100px, 22px, $color-white, 45deg);
+            }
+          }
+
+          .cross-empty-line-1 {
+            @include cross-empty-line(-45deg);
+            left: calc(50% - 45px);
+            top: 48%;
+            width: 90px;
+          }
+
+          .cross-empty-line-2 {
+            @include cross-empty-line(45deg);
+            left: calc(50% - 45px);
+            top: 48%;
+            width: 90px;
+          }
+        }
+      }
+    }
+  }
+
+  // PLAY
+
+  .play {
+    .container {
+      .score {
+        width: 100%;
+        margin-bottom: 30px;
+
+        .cross-box, .circle-box {
+          border-radius: 0;
+          height: 64px;
+        }
+
+        .cross-box {
+          .cross {
+            left: calc(50% - 15px);
+
+            &::before {
+              @include cross(30px, 4px, $color-white, -45deg);
+            }
+            &::after {
+              @include cross(30px, 4px, $color-white, 45deg);
+            }
+          }
+        }
+
+        .circle-box {
+          &::before {
+            @include circle(20px, 4px, $color-white)
+          }
+        }
+
+        .vs {
+          height: 100%;
+          border-radius: 0;
+        }
+
+        .score-box {
+          height: 100%;
+          font-size: 40px;
+        }
+
+        .turn {
+          display: none;
+        }
+      }
+
+      .table {
+        .box {
+          .circle {
+            &::before {
+              @include circle(50px, 8px, $color-black);
+            }
+          }
+
+          .cross {
+            left: calc(50% - 35px);
+            top: 48%;
+
+            &::before {
+              @include cross(70px, 8px, $color-white, -45deg);
+            }
+            &::after {
+              @include cross(70px, 8px, $color-white, 45deg);
+            }
+          }
+        }
+      }
+
+
+      .result {
+        width: 360px;
+        height: 360px;
+
+        .circle {
+          &::before {
+            @include circle(200px, 40px, $color-secondary);
+          }
+        }
+
+        .cross {
+          left: calc(50% - 140px);
+          top: 45%;
+
+          &::before {
+            @include cross(280px, 50px, $color-secondary, -45deg);
+          }
+          &::after {
+            @include cross(280px, 50px, $color-secondary, 45deg);
+          }
+        }
+
+        .draw-cross {
+          left: calc(30% - 85px);
+
+          &::before {
+            @include cross(170px, 30px, $color-secondary, -45deg);
+          }
+          &::after {
+            @include cross(170px, 30px, $color-secondary, 45deg);
+          }
+        }
+
+        .draw-circle {
+          &::before {
+            @include circle(100px, 20px, $color-secondary);
+          }
+        }
+
+        .win, .draw-win {
+          font-size: 96px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@media (max-width: 399px) {
+  .table {
+    width: 280px;
+    height: 280px;
+
+    .box {
+      width: (280px - 16px) / 3;
+      height: (280px - 16px) / 3;
+    }
+  }
+
+
+  // HOME
+
+    .home {
+      .container {
+        .table {
+          font-size: 50px;
+          .box {
+            .cross {
+              left: calc(54% - 35px);
+              &::before {
+                @include cross(70px, 12px, $color-secondary, -45deg);
+
+              }
+              &::after {
+                @include cross(70px, 12px, $color-secondary, 45deg);
+              }
+            }
+
+            .circle {
+              &::before {
+                @include circle(40px, 12px, $color-secondary);
+              }
+            }
+
+            .circle-empty {
+              &::before {
+                @include circle(60px, 4px, $color-main);
+              }
+              &::after {
+                @include circle(40px, 4px, $color-main);
+              }
+            }
+
+            .cross-empty {
+              left: calc(50% - 40px);
+              top: 44%;
+              &::before {
+                @include cross(80px, 22px, $color-white, -45deg);
+
+              }
+              &::after {
+                @include cross(80px, 22px, $color-white, 45deg);
+              }
+            }
+
+            .cross-empty-line-1 {
+              @include cross-empty-line(-45deg);
+              left: calc(50% - 35px);
+              top: 50%;
+              width: 70px;
+            }
+
+            .cross-empty-line-2 {
+              @include cross-empty-line(45deg);
+              left: calc(50% - 35px);
+              top: 50%;
+              width: 70px;
+            }
+          }
+        }
+      }
+    }
+
+  // PLAY
+
+  .play{
+    .container {
+      .score {
+        .vs {
+          width: 60px;
+        }
+      }
+
+      .result {
+        width: 280px;
+        height: 280px;
+        .circle {
+          &::before {
+            @include circle(160px, 40px, $color-secondary);
+          }
+        }
+
+        .cross {
+          left: calc(50% - 120px);
+          top: 45%;
+          &::before {
+            @include cross(240px, 50px, $color-secondary, -45deg);
+          }
+          &::after {
+            @include cross(240px, 50px, $color-secondary, 45deg);
+          }
+        }
+
+        .draw-cross {
+          left: calc(30% - 70px);
+          top: 44.7%;
+          &::before {
+            @include cross(140px, 30px, $color-secondary, -45deg);
+          }
+          &::after {
+            @include cross(140px, 30px, $color-secondary, 45deg);
+          }
+        }
+
+        .draw-circle {
+          &::before {
+            @include circle(80px, 20px, $color-secondary);
+          }
+        }
+
+        .win, .draw-win {
+          font-size: 76px;
+        }
+      }
+    }
+  }
+}
