@@ -292,7 +292,7 @@ body {
   .play .container .result .cross {
     position: absolute;
     left: calc(50% - 230px);
-    top: 50%; }
+    top: 45%; }
     .play .container .result .cross::before {
       position: absolute;
       content: '';
@@ -539,8 +539,7 @@ body {
       height: 200px;
       border: 40px solid #ED494C; }
     .play .container .result .cross {
-      left: calc(50% - 140px);
-      top: 45%; }
+      left: calc(50% - 140px); }
       .play .container .result .cross::before {
         position: absolute;
         content: '';
@@ -694,8 +693,7 @@ body {
       height: 160px;
       border: 40px solid #ED494C; }
     .play .container .result .cross {
-      left: calc(50% - 120px);
-      top: 45%; }
+      left: calc(50% - 120px); }
       .play .container .result .cross::before {
         position: absolute;
         content: '';

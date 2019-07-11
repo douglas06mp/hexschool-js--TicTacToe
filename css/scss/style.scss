@@ -281,7 +281,7 @@ body {
       .cross {
         position: absolute;
         left: calc(50% - 230px);
-        top: 50%;
+        top: 45%;
 
         &::before {
           @include cross(460px, 50px, $color-secondary, -45deg);
@@ -524,7 +524,6 @@ body {
 
         .cross {
           left: calc(50% - 140px);
-          top: 45%;
 
           &::before {
             @include cross(280px, 50px, $color-secondary, -45deg);
@@ -658,7 +657,6 @@ body {
 
         .cross {
           left: calc(50% - 120px);
-          top: 45%;
           &::before {
             @include cross(240px, 50px, $color-secondary, -45deg);
           }
