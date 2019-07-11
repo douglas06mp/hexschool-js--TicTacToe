@@ -342,9 +342,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 154px;
-    -webkit-text-stroke: 0.1px #fff;
     font-style: italic;
-    color: #FF6D70; }
+    color: #fff;
+    opacity: .8; }
   .play .container .result .top {
     top: 20%; }
   .play .container .result .bottom {
